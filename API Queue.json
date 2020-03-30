@@ -1,0 +1,809 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API to manage Job Queue ",
+    "version": "1.0.0",
+    "title": "JobQueue"
+  },
+  "host": "localhost:8000",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "definitions": {
+    "ResponseError400": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "object",
+          "title": "Objeto con el status de la llamada.",
+          "properties": {
+            "transactionId": {
+              "type": "string",
+              "title": "Id de transacción generado por el API Management.",
+              "example": "0000016349eeab2d-2c9"
+            },
+            "code": {
+              "type": "string",
+              "title": "Código interno de respuesta.",
+              "example": 400
+            },
+            "description": {
+              "type": "string",
+              "title": "Descripción interno de respuesta.",
+              "example": "petición incorrecta"
+            },
+            "descriptionDetail": {
+              "type": "string",
+              "title": "Descripción detallada o acción a realizar.",
+              "example": "La petición contiene sintaxis erronea y no debería repetirse."
+            },
+            "responseTimestamp": {
+              "type": "string",
+              "title": "Fecha y hora de respuesta del API Management.",
+              "example": "2018-05-10T17:49:56.080"
+            }
+          }
+        }
+      }
+    },
+    "ResponseError401": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "object",
+          "title": "Objeto con el status de la llamada.",
+          "properties": {
+            "transactionId": {
+              "type": "string",
+              "title": "Id de transacción generado por el API Management.",
+              "example": "0000016349eeab2d-2c9"
+            },
+            "code": {
+              "type": "string",
+              "title": "Código interno de respuesta.",
+              "example": 401
+            },
+            "description": {
+              "type": "string",
+              "title": "Descripción interno de respuesta.",
+              "example": "No autorizado"
+            },
+            "descriptionDetail": {
+              "type": "string",
+              "title": "Descripción detallada o acción a realizar.",
+              "example": "Error en la entrega del token de autorización."
+            },
+            "responseTimestamp": {
+              "type": "string",
+              "title": "Fecha y hora de respuesta del API Management.",
+              "example": "2018-05-10T17:49:56.080"
+            }
+          }
+        }
+      }
+    },
+    "ResponseError404": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "object",
+          "title": "Objeto con el status de la llamada.",
+          "properties": {
+            "transactionId": {
+              "type": "string",
+              "title": "Id de transacción generado por el API Management.",
+              "example": "0000016349eeab2d-2c9"
+            },
+            "code": {
+              "type": "string",
+              "title": "Código interno de respuesta.",
+              "example": 404
+            },
+            "description": {
+              "type": "string",
+              "title": "Descripción interno de respuesta.",
+              "example": "No encontrado"
+            },
+            "descriptionDetail": {
+              "type": "string",
+              "title": "Descripción detallada o acción a realizar.",
+              "example": "Recurso no encontrado."
+            },
+            "responseTimestamp": {
+              "type": "string",
+              "title": "Fecha y hora de respuesta del API Management.",
+              "example": "2018-05-10T17:49:56.080"
+            }
+          }
+        }
+      }
+    },
+    "ResponseError405": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "object",
+          "title": "Objeto con el status de la llamada.",
+          "properties": {
+            "transactionId": {
+              "type": "string",
+              "title": "Id de transacción generado por el API Management.",
+              "example": "0000016349eeab2d-2c9"
+            },
+            "code": {
+              "type": "string",
+              "title": "Código interno de respuesta.",
+              "example": 405
+            },
+            "description": {
+              "type": "string",
+              "title": "Descripción interno de respuesta.",
+              "example": "Método no permitido"
+            },
+            "descriptionDetail": {
+              "type": "string",
+              "title": "Descripción detallada o acción a realizar.",
+              "example": "Una petición fue hecha a una URI utilizando un método de solicitud no soportado por dicha URI."
+            },
+            "responseTimestamp": {
+              "type": "string",
+              "title": "Fecha y hora de respuesta del API Management.",
+              "example": "2018-05-10T17:49:56.080"
+            }
+          }
+        }
+      }
+    },
+    "ResponseError422": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "object",
+          "title": "Objeto con el status de la llamada.",
+          "properties": {
+            "transactionId": {
+              "type": "string",
+              "title": "Id de transacción generado por el API Management.",
+              "example": "0000016349eeab2d-2c9"
+            },
+            "code": {
+              "type": "string",
+              "title": "Código interno de respuesta.",
+              "example": 422
+            },
+            "description": {
+              "type": "string",
+              "title": "Descripción interno de respuesta.",
+              "example": "Entidad no procesada"
+            },
+            "descriptionDetail": {
+              "type": "string",
+              "title": "Descripción detallada o acción a realizar.",
+              "example": "La petición está bien formada pero fue imposible seguirla debido a errores semánticos."
+            },
+            "responseTimestamp": {
+              "type": "string",
+              "title": "Fecha y hora de respuesta del API Management.",
+              "example": "2018-05-10T17:49:56.080"
+            }
+          }
+        }
+      }
+    },
+    "ResponseError429": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "object",
+          "title": "Objeto con el status de la llamada.",
+          "properties": {
+            "transactionId": {
+              "type": "string",
+              "title": "Id de transacción generado por el API Management.",
+              "example": "0000016349eeab2d-2c9"
+            },
+            "code": {
+              "type": "string",
+              "title": "Código interno de respuesta.",
+              "example": 429
+            },
+            "description": {
+              "type": "string",
+              "title": "Descripción interno de respuesta.",
+              "example": "Demasiadas solicitudes"
+            },
+            "descriptionDetail": {
+              "type": "string",
+              "title": "Descripción detallada o acción a realizar.",
+              "example": "Demasiadas solicitudes llegaron a la API."
+            },
+            "responseTimestamp": {
+              "type": "string",
+              "title": "Fecha y hora de respuesta del API Management.",
+              "example": "2018-05-10T17:49:56.080"
+            }
+          }
+        }
+      }
+    },
+    "ResponseError500": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "object",
+          "title": "Objeto con el status de la llamada.",
+          "properties": {
+            "transactionId": {
+              "type": "string",
+              "title": "Id de transacción generado por el API Management.",
+              "example": "0000016349eeab2d-2c9"
+            },
+            "code": {
+              "type": "string",
+              "title": "Código interno de respuesta.",
+              "example": 500
+            },
+            "description": {
+              "type": "string",
+              "title": "Descripción interno de respuesta.",
+              "example": "Error interno en el servidor"
+            },
+            "descriptionDetail": {
+              "type": "string",
+              "title": "Descripción detallada o acción a realizar.",
+              "example": "El servidor ha encontrado una error inesperado."
+            },
+            "responseTimestamp": {
+              "type": "string",
+              "title": "Fecha y hora de respuesta del API Management.",
+              "example": "2018-05-10T17:49:56.080"
+            }
+          }
+        }
+      }
+    },
+    "ResponseGetJobs": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "example": 811
+              },
+              "queue": {
+                "type": "string",
+                "example": "default"
+              },
+              "payload": {
+                "type": "string",
+                "example": "..."
+              },
+              "attempts": {
+                "type": "string",
+                "example": 0
+              },
+              "reserved_at": {
+                "type": "string",
+                "example": "null"
+              },
+              "available_at": {
+                "type": "number",
+                "example": 1585576892
+              },
+              "created_at": {
+                "type": "number",
+                "example": 1585576892
+              }
+            }
+          }
+        }
+      }
+    },
+    "ResponseGetId": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "example": 811
+            },
+            "queue": {
+              "type": "string",
+              "example": "default"
+            },
+            "payload": {
+              "type": "string",
+              "example": "..."
+            },
+            "attempts": {
+              "type": "string",
+              "example": 0
+            },
+            "reserved_at": {
+              "type": "string",
+              "example": "null"
+            },
+            "available_at": {
+              "type": "number",
+              "example": 1585576892
+            },
+            "created_at": {
+              "type": "number",
+              "example": 1585576892
+            }
+          }
+        }
+      }
+    },
+    "ResponsePost": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "object",
+          "properties": {
+            "jobId": {
+              "type": "number",
+              "example": 814
+            },
+            "description": {
+              "type": "string",
+              "example": "Job created successfully"
+            }
+          }
+        }
+      }
+    },
+    "RequestPost": {
+      "type": "object",
+      "properties": {}
+    },
+    "ResponsePutId": {
+      "type": "object",
+      "properties": {}
+    },
+    "RequestPutId": {
+      "type": "object",
+      "properties": {
+        "created_at": {
+          "type": "number",
+          "example": 1
+        },
+        "available_at": {
+          "type": "number",
+          "example": 1123
+        },
+        "reserved_at": {
+          "type": "string",
+          "example": "null"
+        },
+        "attempts": {
+          "type": "string",
+          "example": 0
+        }
+      }
+    },
+    "ResponsePostId": {
+      "type": "object",
+      "properties": {}
+    },
+    "RequestPostId": {
+      "type": "object",
+      "properties": {
+        "attempts": {
+          "type": "number",
+          "example": 1234
+        },
+        "available_at": {
+          "type": "number",
+          "example": 1234
+        },
+        "created_at": {
+          "type": "number",
+          "example": 1234
+        },
+        "reserved_at": {
+          "type": "number",
+          "example": 1234
+        }
+      }
+    },
+    "ResponsePostIddelete": {
+      "type": "object",
+      "properties": {}
+    },
+    "RequestPostIddelete": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "paths": {
+    "/api/v1/jobs": {
+      "get": {
+        "tags": [
+          "jobs"
+        ],
+        "summary": "retieves all jobs in queue, this method has cache of one minute ",
+        "description": "\n# 1. Usage\n## 1.1 URI\n\n | Environment | API Endpoint \n | -- | -- | -- |\n | DEV      | https://localhost:8000/api/v1/jobs | \n\n\n\n# 2. Request\n## 2.1. Header Parameter\n| field | Type | required | Description | Possible values |\n|:--|:--:|:--:|:--:|---:|\n| Content-Type | string | Si | Indica el tipo de  contenido del cuerpo del mensaje enviado al  destinatario | application/json; charset=utf-8 |\n\n \n\n## 2.2. Response Structure\n| field | Type | required | Description | Possible values |\n|:--|:--:|:--:|:--:|---:|\n|result|Array| NO     |       |       |\n|result.id|number|YES|       |811|\n|result.queue|string|YES|       |default|\n|result.payload|string|YES|       |...|\n|result.attempts|number|YES|       |0|\n|result.reserved_at|string|YES|       |null|\n|result.available_at|number|YES|       |1585576892|\n|result.created_at|number|YES|       |1585576892|\n\n\n# 3.  Códigos de  retorno\nA continuacion los posibles codigos retornados para este servicio\n\n| Code Status  HTTP| Descripción HTTP|\n|--|:---|\n| 200 - OK| Respuesta estándar para peticiones correctas. |\n| 400 - PETICIÓN INCORRECTA| La solicitud contiene sintaxis errónea y no debería repetirse. |\n| 401 - NO AUTORIZADO | El token de autorización ingresado es inválido.    |\n| 404 - NO ENCONTRADO | Recurso no encontrado. |\n| 405 - MÉTODO NO PERMITIDO | Una petición fue hecha a una URI utilizando un método de solicitud no soportado por dicha URI |\n | 422 - ERROR DE PROCESAMIENTO DE LA SOLICITUD | La solicitud está bien formada pero fue imposible seguirla debido a errores semánticos|\n | 429 - LÍMITE DE SOLICITUDES EXCEDIDOS | Se ha excedido el límite de solicitudes para un período de tiempo determinado.|\n| 500 - ERROR EN EL SERVIDOR | El servidor ha encontrado un error inesperado. |\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK - Procesamiento concluído exitosamente",
+            "schema": {
+              "$ref": "#/definitions/ResponseGetJobs"
+            }
+          },
+          "400": {
+            "description": "Error - Parámetros invalidos",
+            "schema": {
+              "$ref": "#/definitions/ResponseError400"
+            }
+          },
+          "401": {
+            "description": "Error - Error de autenticación",
+            "schema": {
+              "$ref": "#/definitions/ResponseError401"
+            }
+          },
+          "404": {
+            "description": "Error - Recurso no encontrado.",
+            "schema": {
+              "$ref": "#/definitions/ResponseError404"
+            }
+          },
+          "405": {
+            "description": "Error - Método no permitido",
+            "schema": {
+              "$ref": "#/definitions/ResponseError405"
+            }
+          },
+          "422": {
+            "description": "Error - Error de procesamiento de la solicitud",
+            "schema": {
+              "$ref": "#/definitions/ResponseError422"
+            }
+          },
+          "429": {
+            "description": "Error - Límite de solicitudes excedido",
+            "schema": {
+              "$ref": "#/definitions/ResponseError429"
+            }
+          },
+          "500": {
+            "description": "Error - Error inesperado en el servidor",
+            "schema": {
+              "$ref": "#/definitions/ResponseError500"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/jobs/{id}": {
+      "get": {
+        "tags": [
+          "jobs"
+        ],
+        "summary": "retieves a job from queue",
+        "description": "\n# 1. Modo de Consumo\n## 1.1 URI\n\n | Environment | API Endpoint| \n | -- | -- | -- |\n | DEV      | https://localhost:8000/api/v1/jobs/{id} \n\n\n# 2. Estructura de entrada (Request)\n## 2.1. Parametros Header\n| Field| Type | Required | Description | Format |\n|:--|:--:|:--:|:--:|---:|\n| Content-Type | string | Si | Indica el tipo de  contenido del cuerpo del mensaje enviado al  destinatario | application/json; charset=utf-8 |\n\n \n## 2.2. Request parameter \n| Field| Type | Required | Description | Format |\n|:--|:--:|:--:|:--:|---:|\n|id|string|YES||||\n\n## 2.3. Response \n| Field| Type | Required | Description | Format |\n|:--|:--:|:--:|:--:|---:|\n|result|object|  YES    |       |       |\n|result.id|number|YES|       |811|\n|result.queue|string|YES|       |default|\n|result.payload|string|YES|       |...|\n|result.attempts|number|YES|       |0|\n|result.reserved_at|string|YES|       |null|\n|result.available_at|number|YES|       |1585576892|\n|result.created_at|number|YES|       |1585576892|\n\n\n# 3.  Códigos de  retorno\nA continuacion los posibles codigos retornados para este servicio\n\n| Code Status  HTTP| Descripción HTTP|\n|--|:---|\n| 200 - OK| Respuesta estándar para peticiones correctas. |\n| 400 - PETICIÓN INCORRECTA| La solicitud contiene sintaxis errónea y no debería repetirse. |\n| 401 - NO AUTORIZADO | El token de autorización ingresado es inválido.    |\n| 404 - NO ENCONTRADO | Recurso no encontrado. |\n| 405 - MÉTODO NO PERMITIDO | Una petición fue hecha a una URI utilizando un método de solicitud no soportado por dicha URI |\n | 422 - ERROR DE PROCESAMIENTO DE LA SOLICITUD | La solicitud está bien formada pero fue imposible seguirla debido a errores semánticos|\n | 429 - LÍMITE DE SOLICITUDES EXCEDIDOS | Se ha excedido el límite de solicitudes para un período de tiempo determinado.|\n| 500 - ERROR EN EL SERVIDOR | El servidor ha encontrado un error inesperado. |\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "required": true,
+            "default": "",
+            "name": "id",
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Procesamiento concluído exitosamente",
+            "schema": {
+              "$ref": "#/definitions/ResponseGetId"
+            }
+          },
+          "400": {
+            "description": "Error - Parámetros invalidos",
+            "schema": {
+              "$ref": "#/definitions/ResponseError400"
+            }
+          },
+          "401": {
+            "description": "Error - Error de autenticación",
+            "schema": {
+              "$ref": "#/definitions/ResponseError401"
+            }
+          },
+          "404": {
+            "description": "Error - Recurso no encontrado.",
+            "schema": {
+              "$ref": "#/definitions/ResponseError404"
+            }
+          },
+          "405": {
+            "description": "Error - Método no permitido",
+            "schema": {
+              "$ref": "#/definitions/ResponseError405"
+            }
+          },
+          "422": {
+            "description": "Error - Error de procesamiento de la solicitud",
+            "schema": {
+              "$ref": "#/definitions/ResponseError422"
+            }
+          },
+          "429": {
+            "description": "Error - Límite de solicitudes excedido",
+            "schema": {
+              "$ref": "#/definitions/ResponseError429"
+            }
+          },
+          "500": {
+            "description": "Error - Error inesperado en el servidor",
+            "schema": {
+              "$ref": "#/definitions/ResponseError500"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "jobs"
+        ],
+        "summary": "Updates a job from queue",
+        "description": "\n# 1. Modo de Consumo\n## 1.1 URI\n\n | Environment | API Endpoint| \n | -- | -- | -- |\n | DEV      | https://localhost:8000/api/v1/jobs/iddelete | \n\n\n\n# 2. Request\n## 2.1. Parametros Header\n| Field| Type| Required | Description| Format  |\n|:--|:--:|:--:|:--:|---:|\n| Content-Type | string | Yes | message format | application/json; charset=utf-8 |\n\n \n## 2.2. Request Parameter\n| Parámetro | Tipo | Obligatorio| Descripcion | Valores posibles - Formato |  \n|:--|:--:|:--:|:--:|---:|\n\n## 2.3. Response  structure\n| Campo | Tipo | Obligatorio | Descripcion | Valores posibles - Formato |\n|:--|:--:|:--:|:--:|---:|\n\n\n# 3.  Codes\nA continuacion los posibles codigos retornados para este servicio\n\n| Code Status  HTTP| Descripción HTTP|\n|--|:---|\n| 204 - OK| Respuesta estándar para peticiones correctas. |\n| 400 - PETICIÓN INCORRECTA| La solicitud contiene sintaxis errónea y no debería repetirse. |\n| 401 - NO AUTORIZADO | El token de autorización ingresado es inválido.    |\n| 404 - NO ENCONTRADO | Recurso no encontrado. |\n| 405 - MÉTODO NO PERMITIDO | Una petición fue hecha a una URI utilizando un método de solicitud no soportado por dicha URI |\n | 422 - ERROR DE PROCESAMIENTO DE LA SOLICITUD | La solicitud está bien formada pero fue imposible seguirla debido a errores semánticos|\n | 429 - LÍMITE DE SOLICITUDES EXCEDIDOS | Se ha excedido el límite de solicitudes para un período de tiempo determinado.|\n| 500 - ERROR EN EL SERVIDOR | El servidor ha encontrado un error inesperado. |\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "required": true,
+            "default": "",
+            "name": "id",
+            "description": "",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Estructura request a enviar",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestPostIddelete"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Procesamiento concluído exitosamente",
+            "schema": {
+              "$ref": "#/definitions/ResponsePostIddelete"
+            }
+          },
+          "400": {
+            "description": "Error - Parámetros invalidos",
+            "schema": {
+              "$ref": "#/definitions/ResponseError400"
+            }
+          },
+          "401": {
+            "description": "Error - Error de autenticación",
+            "schema": {
+              "$ref": "#/definitions/ResponseError401"
+            }
+          },
+          "404": {
+            "description": "Error - Recurso no encontrado.",
+            "schema": {
+              "$ref": "#/definitions/ResponseError404"
+            }
+          },
+          "405": {
+            "description": "Error - Método no permitido",
+            "schema": {
+              "$ref": "#/definitions/ResponseError405"
+            }
+          },
+          "422": {
+            "description": "Error - Error de procesamiento de la solicitud",
+            "schema": {
+              "$ref": "#/definitions/ResponseError422"
+            }
+          },
+          "429": {
+            "description": "Error - Límite de solicitudes excedido",
+            "schema": {
+              "$ref": "#/definitions/ResponseError429"
+            }
+          },
+          "500": {
+            "description": "Error - Error inesperado en el servidor",
+            "schema": {
+              "$ref": "#/definitions/ResponseError500"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "jobs"
+        ],
+        "summary": "Updates a job from queue",
+        "description": "\n# 1. Modo de Consumo\n## 1.1 URI\n\n | Ambiente | API Endpoint| \n | -- | -- | -- |\n | DEV      | https://localhost:8000/api/v1/jobs/id |\n\n\n# 2. Estructura de entrada (Request)\n## 2.1. Parametros Header\n| Campo| Tipo| Obligatorio |Descripcion| Valores posibles - Formato  |\n|:--|:--:|:--:|:--:|---:|\n| Content-Type | string | Si | Indica el tipo de  contenido del cuerpo del mensaje enviado al  destinatario | application/json; charset=utf-8 |\n\n \n## 2.2. Estructura Parámetros de entrada\n| Parámetro | Tipo | Obligatorio| Descripcion | Valores posibles - Formato |  \n|:--|:--:|:--:|:--:|---:|\n|attempts|number|SI|       |1234|\n|available_at|number|SI|       |1234|\n|created_at|number|SI|       |1234|\n|reserved_at|number|SI|       |1234|\n\n## 2.3. Estructura Response\n| Campo | Tipo | Obligatorio | Descripcion | Valores posibles - Formato |\n|:--|:--:|:--:|:--:|---:|\n\n\n# 3.  Códigos de  retorno\nA continuacion los posibles codigos retornados para este servicio\n\n| Code Status  HTTP| Descripción HTTP|\n|--|:---|\n| 204 - OK| Respuesta estándar para peticiones correctas. |\n| 400 - PETICIÓN INCORRECTA| La solicitud contiene sintaxis errónea y no debería repetirse. |\n| 401 - NO AUTORIZADO | El token de autorización ingresado es inválido.    |\n| 404 - NO ENCONTRADO | Recurso no encontrado. |\n| 405 - MÉTODO NO PERMITIDO | Una petición fue hecha a una URI utilizando un método de solicitud no soportado por dicha URI |\n | 422 - ERROR DE PROCESAMIENTO DE LA SOLICITUD | La solicitud está bien formada pero fue imposible seguirla debido a errores semánticos|\n | 429 - LÍMITE DE SOLICITUDES EXCEDIDOS | Se ha excedido el límite de solicitudes para un período de tiempo determinado.|\n| 500 - ERROR EN EL SERVIDOR | El servidor ha encontrado un error inesperado. |\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "required": true,
+            "default": "",
+            "name": "id",
+            "description": "",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Structure to send",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestPostId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Procesamiento concluído exitosamente",
+            "schema": {
+              "$ref": "#/definitions/ResponsePostId"
+            }
+          },
+          "400": {
+            "description": "Error - Parámetros invalidos",
+            "schema": {
+              "$ref": "#/definitions/ResponseError400"
+            }
+          },
+          "401": {
+            "description": "Error - Error de autenticación",
+            "schema": {
+              "$ref": "#/definitions/ResponseError401"
+            }
+          },
+          "404": {
+            "description": "Error - Recurso no encontrado.",
+            "schema": {
+              "$ref": "#/definitions/ResponseError404"
+            }
+          },
+          "405": {
+            "description": "Error - Método no permitido",
+            "schema": {
+              "$ref": "#/definitions/ResponseError405"
+            }
+          },
+          "422": {
+            "description": "Error - Error de procesamiento de la solicitud",
+            "schema": {
+              "$ref": "#/definitions/ResponseError422"
+            }
+          },
+          "429": {
+            "description": "Error - Límite de solicitudes excedido",
+            "schema": {
+              "$ref": "#/definitions/ResponseError429"
+            }
+          },
+          "500": {
+            "description": "Error - Error inesperado en el servidor",
+            "schema": {
+              "$ref": "#/definitions/ResponseError500"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/jobs/": {
+      "post": {
+        "tags": [
+          "jobs"
+        ],
+        "summary": "Adds a job from queue",
+        "description": "\n# 1. Modo de Consumo\n## 1.1 URI\n\n | Environment | API Endpoint| \n | -- | -- | -- |\n | DEV      | http://localhost:8000/api/v1/jobs/ |  \n\n\n\n# 2. Request\n## 2.1. Parametros Header\n| field| Type| Required |Descripcion| Format  |\n|:--|:--:|:--:|:--:|---:|\n| Content-Type | string | Si | Indica el tipo de  contenido del cuerpo del mensaje enviado al  destinatario | application/json; charset=utf-8 |\n \n## 2.2. Request Parameters\n| field| Type| Required |Descripcion| Format  |\n|:--|:--:|:--:|:--:|---:|\n\n## 2.3. Response\n| Campo | Tipo | Obligatorio | Descripcion | Valores posibles - Formato |\n|:--|:--:|:--:|:--:|---:|\n|result|object|      |       |       |\n|result.jobId|number|SI|       |814|\n|result.description|string|SI|       |Job created successfully|\n\n\n# 3.  Codes\nA continuacion los posibles codigos retornados para este servicio\n\n| Code Status  HTTP| Descripción HTTP|\n|--|:---|\n| 200 - OK| Respuesta estándar para peticiones correctas. |\n| 400 - PETICIÓN INCORRECTA| La solicitud contiene sintaxis errónea y no debería repetirse. |\n| 401 - NO AUTORIZADO | El token de autorización ingresado es inválido.    |\n| 404 - NO ENCONTRADO | Recurso no encontrado. |\n| 405 - MÉTODO NO PERMITIDO | Una petición fue hecha a una URI utilizando un método de solicitud no soportado por dicha URI |\n | 422 - ERROR DE PROCESAMIENTO DE LA SOLICITUD | La solicitud está bien formada pero fue imposible seguirla debido a errores semánticos|\n | 429 - LÍMITE DE SOLICITUDES EXCEDIDOS | Se ha excedido el límite de solicitudes para un período de tiempo determinado.|\n| 500 - ERROR EN EL SERVIDOR | El servidor ha encontrado un error inesperado. |\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Estructura request a enviar",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Procesamiento concluído exitosamente",
+            "schema": {
+              "$ref": "#/definitions/ResponsePost"
+            }
+          },
+          "400": {
+            "description": "Error - Parámetros invalidos",
+            "schema": {
+              "$ref": "#/definitions/ResponseError400"
+            }
+          },
+          "401": {
+            "description": "Error - Error de autenticación",
+            "schema": {
+              "$ref": "#/definitions/ResponseError401"
+            }
+          },
+          "404": {
+            "description": "Error - Recurso no encontrado.",
+            "schema": {
+              "$ref": "#/definitions/ResponseError404"
+            }
+          },
+          "405": {
+            "description": "Error - Método no permitido",
+            "schema": {
+              "$ref": "#/definitions/ResponseError405"
+            }
+          },
+          "422": {
+            "description": "Error - Error de procesamiento de la solicitud",
+            "schema": {
+              "$ref": "#/definitions/ResponseError422"
+            }
+          },
+          "429": {
+            "description": "Error - Límite de solicitudes excedido",
+            "schema": {
+              "$ref": "#/definitions/ResponseError429"
+            }
+          },
+          "500": {
+            "description": "Error - Error inesperado en el servidor",
+            "schema": {
+              "$ref": "#/definitions/ResponseError500"
+            }
+          }
+        }
+      }
+    }
+  }
+}
