@@ -13,12 +13,12 @@ class JobController extends Controller
 
     
     public function index(){
-        $jobs = Cache::remember('users', Carbon::now()->addMinutes(5), function() // adds cache
+        $jobs = Cache::remember('users', Carbon::now()->addMinutes(1), function() // adds cache
         {
             return ModelJob::all();
         });
-
-        return $jobs;
+        $result['result']=$jobs;
+        return  response()->json( $result);
     }
 
     public function store(){
@@ -26,7 +26,8 @@ class JobController extends Controller
         $id= app(\Illuminate\Contracts\Bus\Dispatcher::class)->dispatch($emailJob);
         $json['jobId']=$id;
         $json['description']= "Job created successfully";
-        return response()->json( $json, 201);
+        $result['result']=$json;
+        return response()->json( $result, 201);
     }
 
     public function update(Request $request,$id){
@@ -38,7 +39,8 @@ class JobController extends Controller
 
     public function show($id){
         $job=  ModelJob::find($id);
-        return $job; 
+        $result['result']=$job;
+        return response()->json($result,200); 
     }
 
     public function destroy($id){

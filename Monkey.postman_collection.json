@@ -1,0 +1,520 @@
+{
+	"info": {
+		"_postman_id": "462c75a4-b67f-42b6-8073-4c8c8781fd81",
+		"name": "Monkey",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/jobs/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jobs",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET ALL",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/jobs/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"jobs",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.0.33"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 30 Mar 2020 14:10:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "XSRF-TOKEN=eyJpdiI6IjhGbnVrcGVTdUxicVwvUjNkQW0xSTV3PT0iLCJ2YWx1ZSI6IlVXUGRVR0IzY20zc2l2NDlKNjZ6WnJJMk10RHFnSVRRRmNpYldoNk1PZ0ZVR05IRWwxeFRTbVI5OGExSk5oYjUiLCJtYWMiOiI0ZWMxMmQ0ZTIxNmU0Y2U3MzM5NTljZWJmZDc5YjMyMGFlYzE2YjE3NjkzNmMxZjYwZjc3ZTE4ZTAyNjUyZmY4In0%3D; expires=Mon, 30-Mar-2020 16:10:15 GMT; Max-Age=7200; path=/"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "laravel_session=eyJpdiI6ImdzQ1h3S1JPN3JBcDg2ZHJOaUExWUE9PSIsInZhbHVlIjoiOGxtdVNmRktXMTlOY2tqeFwvWVhxcWNzMDFHNlwvYm4zZjRraFRYUDk3WFVoTmp4YnBEbUhZdmZqdEtPTmlyaklWIiwibWFjIjoiMDc0NzFjMjc1NDQ3MzJmMTRmOWE5M2VjZDc1OGNhM2QzMmJiZDFiZjBiNDFkYTU3ZTIzOTRjOWQ2MTdjZDM4ZSJ9; expires=Mon, 30-Mar-2020 16:10:15 GMT; Max-Age=7200; path=/; httponly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": [\n        {\n            \"id\": 811,\n            \"queue\": \"default\",\n            \"payload\": \"{\\\"displayName\\\":\\\"App\\\\\\\\Jobs\\\\\\\\Job\\\",\\\"job\\\":\\\"Illuminate\\\\\\\\Queue\\\\\\\\CallQueuedHandler@call\\\",\\\"maxTries\\\":null,\\\"timeout\\\":null,\\\"timeoutAt\\\":null,\\\"data\\\":{\\\"commandName\\\":\\\"App\\\\\\\\Jobs\\\\\\\\Job\\\",\\\"command\\\":\\\"O:12:\\\\\\\"App\\\\\\\\Jobs\\\\\\\\Job\\\\\\\":7:{s:6:\\\\\\\"\\\\u0000*\\\\u0000job\\\\\\\";N;s:10:\\\\\\\"connection\\\\\\\";N;s:5:\\\\\\\"queue\\\\\\\";N;s:15:\\\\\\\"chainConnection\\\\\\\";N;s:10:\\\\\\\"chainQueue\\\\\\\";N;s:5:\\\\\\\"delay\\\\\\\";N;s:7:\\\\\\\"chained\\\\\\\";a:0:{}}\\\"}}\",\n            \"attempts\": 0,\n            \"reserved_at\": null,\n            \"available_at\": 1585576892,\n            \"created_at\": 1585576892\n        },\n        {\n            \"id\": 812,\n            \"queue\": \"default\",\n            \"payload\": \"{\\\"displayName\\\":\\\"App\\\\\\\\Jobs\\\\\\\\Job\\\",\\\"job\\\":\\\"Illuminate\\\\\\\\Queue\\\\\\\\CallQueuedHandler@call\\\",\\\"maxTries\\\":null,\\\"timeout\\\":null,\\\"timeoutAt\\\":null,\\\"data\\\":{\\\"commandName\\\":\\\"App\\\\\\\\Jobs\\\\\\\\Job\\\",\\\"command\\\":\\\"O:12:\\\\\\\"App\\\\\\\\Jobs\\\\\\\\Job\\\\\\\":7:{s:6:\\\\\\\"\\\\u0000*\\\\u0000job\\\\\\\";N;s:10:\\\\\\\"connection\\\\\\\";N;s:5:\\\\\\\"queue\\\\\\\";N;s:15:\\\\\\\"chainConnection\\\\\\\";N;s:10:\\\\\\\"chainQueue\\\\\\\";N;s:5:\\\\\\\"delay\\\\\\\";N;s:7:\\\\\\\"chained\\\\\\\";a:0:{}}\\\"}}\",\n            \"attempts\": 0,\n            \"reserved_at\": null,\n            \"available_at\": 1585577014,\n            \"created_at\": 1585577014\n        },\n        {\n            \"id\": 813,\n            \"queue\": \"default\",\n            \"payload\": \"{\\\"displayName\\\":\\\"App\\\\\\\\Jobs\\\\\\\\Job\\\",\\\"job\\\":\\\"Illuminate\\\\\\\\Queue\\\\\\\\CallQueuedHandler@call\\\",\\\"maxTries\\\":null,\\\"timeout\\\":null,\\\"timeoutAt\\\":null,\\\"data\\\":{\\\"commandName\\\":\\\"App\\\\\\\\Jobs\\\\\\\\Job\\\",\\\"command\\\":\\\"O:12:\\\\\\\"App\\\\\\\\Jobs\\\\\\\\Job\\\\\\\":7:{s:6:\\\\\\\"\\\\u0000*\\\\u0000job\\\\\\\";N;s:10:\\\\\\\"connection\\\\\\\";N;s:5:\\\\\\\"queue\\\\\\\";N;s:15:\\\\\\\"chainConnection\\\\\\\";N;s:10:\\\\\\\"chainQueue\\\\\\\";N;s:5:\\\\\\\"delay\\\\\\\";N;s:7:\\\\\\\"chained\\\\\\\";a:0:{}}\\\"}}\",\n            \"attempts\": 0,\n            \"reserved_at\": null,\n            \"available_at\": 1585577018,\n            \"created_at\": 1585577018\n        }\n    ]\n}"
+				},
+				{
+					"name": "GET ITEM",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/jobs/811",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"jobs",
+								"811"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.0.33"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 30 Mar 2020 14:11:08 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "XSRF-TOKEN=eyJpdiI6InNoSmF6MUQ1Q3pEdTVKbmlpdW9ienc9PSIsInZhbHVlIjoianNvOGdFSGFzSzQxRU5VRDRGNWtva0NZSGlvdkJMaStlYXg2T0p2TGFlcUZOaEM4K2cwdEpjblZOUlM2V3B2UiIsIm1hYyI6IjZlNjM1NTI3ZjRhOGYzYmZjNTg2M2MxNDRlZDRlNjkwOGY4NDEzNjYwOTJmM2RjOTA1ZjM3YWQxNTRmMmU0OGYifQ%3D%3D; expires=Mon, 30-Mar-2020 16:11:08 GMT; Max-Age=7200; path=/"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "laravel_session=eyJpdiI6ImNJUzh1Nk1vajVVVURQbnlwK0VURWc9PSIsInZhbHVlIjoidzBRRU53dGk2Z2tYZVIzYzcxMFZua0FFXC9sb3BnY1NYNjhwVGhyRmpieGVcL2Zrdm10VWhOOXh2MWlmKzdQR1o2IiwibWFjIjoiZTU1MmQzYjg2MDQzN2YyNWU4MzYwYTI3ZjI3NTgxMDhkNjA0NDRmNDE1MGIxMGQ2ZTQ1MTAyOTcwYjUyNGIxYyJ9; expires=Mon, 30-Mar-2020 16:11:08 GMT; Max-Age=7200; path=/; httponly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"id\": 811,\n        \"queue\": \"default\",\n        \"payload\": \"{\\\"displayName\\\":\\\"App\\\\\\\\Jobs\\\\\\\\Job\\\",\\\"job\\\":\\\"Illuminate\\\\\\\\Queue\\\\\\\\CallQueuedHandler@call\\\",\\\"maxTries\\\":null,\\\"timeout\\\":null,\\\"timeoutAt\\\":null,\\\"data\\\":{\\\"commandName\\\":\\\"App\\\\\\\\Jobs\\\\\\\\Job\\\",\\\"command\\\":\\\"O:12:\\\\\\\"App\\\\\\\\Jobs\\\\\\\\Job\\\\\\\":7:{s:6:\\\\\\\"\\\\u0000*\\\\u0000job\\\\\\\";N;s:10:\\\\\\\"connection\\\\\\\";N;s:5:\\\\\\\"queue\\\\\\\";N;s:15:\\\\\\\"chainConnection\\\\\\\";N;s:10:\\\\\\\"chainQueue\\\\\\\";N;s:5:\\\\\\\"delay\\\\\\\";N;s:7:\\\\\\\"chained\\\\\\\";a:0:{}}\\\"}}\",\n        \"attempts\": 0,\n        \"reserved_at\": null,\n        \"available_at\": 1585576892,\n        \"created_at\": 1585576892\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/jobs/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jobs",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST CREATED QUEUE",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/jobs/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"jobs",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.0.33"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 30 Mar 2020 14:12:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "XSRF-TOKEN=eyJpdiI6ImNERGJ5NkdxOVBSblBDelFUR1FXRGc9PSIsInZhbHVlIjoiREpjTndSeGtKc2pSeElFNWxvYWFcL3Q4bzYrUUl6VWlLMlJta0Nsb3FBcjNqNGUrOXQ3NEtBN00zVnhUbDdnckMiLCJtYWMiOiI5NGU5NmU3ZmMyODVjOWFjNDRhM2NlYjMxODQ5MzFiNTM2ZjYxYzBkNmViZDVkZDMwMmVmYTYzNTk2ZmJhNDYyIn0%3D; expires=Mon, 30-Mar-2020 16:12:31 GMT; Max-Age=7200; path=/"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "laravel_session=eyJpdiI6ImJKT1V3SHZKQlwvZjFCQ2huU2RHQnJRPT0iLCJ2YWx1ZSI6IkszZGw3TXFOMVRMNnFUUlJvVDh3NDBzdzdEdzVQUnZIRW1uU1Y4WVROYmt3RVJhZ3BXWFBNZUhrVW1IdzdKZGgiLCJtYWMiOiI1NzlhMTY2M2ZmY2MwZjcxNjE2MDEwYTA0Nzk2MGI1MjdkZWFjNGE1NzkyMzg4NTAwODUwMTM4ZGE0OWM1YWJiIn0%3D; expires=Mon, 30-Mar-2020 16:12:31 GMT; Max-Age=7200; path=/; httponly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"jobId\": 814,\n        \"description\": \"Job created successfully\"\n    }\n}"
+				},
+				{
+					"name": "POST JOB",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/jobs/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"jobs",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.0.33"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 30 Mar 2020 14:12:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "XSRF-TOKEN=eyJpdiI6ImNERGJ5NkdxOVBSblBDelFUR1FXRGc9PSIsInZhbHVlIjoiREpjTndSeGtKc2pSeElFNWxvYWFcL3Q4bzYrUUl6VWlLMlJta0Nsb3FBcjNqNGUrOXQ3NEtBN00zVnhUbDdnckMiLCJtYWMiOiI5NGU5NmU3ZmMyODVjOWFjNDRhM2NlYjMxODQ5MzFiNTM2ZjYxYzBkNmViZDVkZDMwMmVmYTYzNTk2ZmJhNDYyIn0%3D; expires=Mon, 30-Mar-2020 16:12:31 GMT; Max-Age=7200; path=/"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "laravel_session=eyJpdiI6ImJKT1V3SHZKQlwvZjFCQ2huU2RHQnJRPT0iLCJ2YWx1ZSI6IkszZGw3TXFOMVRMNnFUUlJvVDh3NDBzdzdEdzVQUnZIRW1uU1Y4WVROYmt3RVJhZ3BXWFBNZUhrVW1IdzdKZGgiLCJtYWMiOiI1NzlhMTY2M2ZmY2MwZjcxNjE2MDEwYTA0Nzk2MGI1MjdkZWFjNGE1NzkyMzg4NTAwODUwMTM4ZGE0OWM1YWJiIn0%3D; expires=Mon, 30-Mar-2020 16:12:31 GMT; Max-Age=7200; path=/; httponly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"jobId\": 814,\n        \"description\": \"Job created successfully\"\n    }\n}"
+				},
+				{
+					"name": "POST CREATED QUEUE",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/jobs/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"jobs",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.0.33"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 30 Mar 2020 14:12:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "XSRF-TOKEN=eyJpdiI6ImNERGJ5NkdxOVBSblBDelFUR1FXRGc9PSIsInZhbHVlIjoiREpjTndSeGtKc2pSeElFNWxvYWFcL3Q4bzYrUUl6VWlLMlJta0Nsb3FBcjNqNGUrOXQ3NEtBN00zVnhUbDdnckMiLCJtYWMiOiI5NGU5NmU3ZmMyODVjOWFjNDRhM2NlYjMxODQ5MzFiNTM2ZjYxYzBkNmViZDVkZDMwMmVmYTYzNTk2ZmJhNDYyIn0%3D; expires=Mon, 30-Mar-2020 16:12:31 GMT; Max-Age=7200; path=/"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "laravel_session=eyJpdiI6ImJKT1V3SHZKQlwvZjFCQ2huU2RHQnJRPT0iLCJ2YWx1ZSI6IkszZGw3TXFOMVRMNnFUUlJvVDh3NDBzdzdEdzVQUnZIRW1uU1Y4WVROYmt3RVJhZ3BXWFBNZUhrVW1IdzdKZGgiLCJtYWMiOiI1NzlhMTY2M2ZmY2MwZjcxNjE2MDEwYTA0Nzk2MGI1MjdkZWFjNGE1NzkyMzg4NTAwODUwMTM4ZGE0OWM1YWJiIn0%3D; expires=Mon, 30-Mar-2020 16:12:31 GMT; Max-Age=7200; path=/; httponly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"jobId\": 814,\n        \"description\": \"Job created successfully\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/jobs/62",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jobs",
+						"62"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"attempts\": 11\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/jobs/65",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jobs",
+						"65"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
